@@ -58,18 +58,25 @@ const displayNews = newses => {
 
 
         const newsDiv = document.createElement('div');
-        newsDiv.classList.add('col');
+        newsDiv.classList.add('card', 'mb-3');
         const newsDetails = (news.details).length;
         console.log(newsDetails)
         newsDiv.innerHTML = `
-        <div class="card p-4">
-        <img src="${news.image_url}" class="card-img-top" alt="...">
-        <div class="card-body">
-
-            <p class="card-text">"${news.details}"</p>
-
         </div>
-    </div>
+
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="${news.image_url}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <p class="card-text">"${news.details}"</p>
+
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+
         `;
         newsContainer.appendChild(newsDiv);
     });
