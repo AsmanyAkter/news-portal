@@ -150,13 +150,21 @@ const displayNews = newses => {
                         <p class="card-text">${(news.details).slice(0, 200)}...</p>
 
                         <br> <br>
-                        <div class="d-flex flex-row g-4">
-                        <img src="${news.author.img}" alt="" srcset="" height="40px" width="40px"
-                            style="border-radius: 50%;">
-                        <h5 class="ps-3"> ${news.author.name} </h5>
-                        <h5 class="ps-5 pe-5">${news.total_view}</h5>
+                        <div class="d-flex flex-row g-4 justify-content-between">
 
-                        <button class="btn btn-primary btn-sm" >See more</button>
+                        <div class ="d-inline">
+
+                        <img src="${news.author.img}" alt="" srcset="" height="40px" width="40px"
+                            style="border-radius: 50%;"> </img>
+
+                        <p > ${news.author.name ? news.author.name : "No data found"}</p>
+                        </div>
+
+                        <div>   <h5 class="pt-4">${news.total_view ? news.total_view : "No Views"}</h5></div>
+
+                        <div>    <button class="btn btn-primary btn-sm mt-4" >See more</button>
+                        </div>
+
 
 
                         </div>
