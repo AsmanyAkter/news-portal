@@ -42,60 +42,67 @@ const loadNewsById = async (searchId) => {
 
 document.addEventListener('click', function (e) {
     if (e.target && e.target.id == '01') {
-        loadNewsById('01')
+        loadNewsById('01');
+        toggleSpinner(true);
     }
-    toggleSpinner(true);
+
 });
 
 document.addEventListener('click', function (e) {
     if (e.target && e.target.id == '02') {
-        loadNewsById('02')
+        loadNewsById('02');
+        toggleSpinner(true);
     }
-    toggleSpinner(true);
+
 });
 
 document.addEventListener('click', function (e) {
     if (e.target && e.target.id == '03') {
-        loadNewsById('03')
+        loadNewsById('03');
+        toggleSpinner(true);
     }
-    toggleSpinner(true);
+
 });
 
 
 document.addEventListener('click', function (e) {
     if (e.target && e.target.id == '04') {
-        loadNewsById('04')
+        loadNewsById('04');
+        toggleSpinner(true);
     }
-    toggleSpinner(true);
+
 });
 document.addEventListener('click', function (e) {
     if (e.target && e.target.id == '05') {
-        loadNewsById('05')
+        loadNewsById('05');
+        toggleSpinner(true);
     }
-    toggleSpinner(true);
+
 });
 
 
 document.addEventListener('click', function (e) {
     if (e.target && e.target.id == '06') {
-        loadNewsById('06')
+        loadNewsById('06');
+        toggleSpinner(true);
     }
-    toggleSpinner(true);
+
 });
 
 document.addEventListener('click', function (e) {
     if (e.target && e.target.id == '07') {
-        loadNewsById('07')
+        loadNewsById('07');
+        toggleSpinner(true);
     }
-    toggleSpinner(true);
 });
 
 
 document.addEventListener('click', function (e) {
     if (e.target && e.target.id == '08') {
-        loadNewsById('08')
+        loadNewsById('08');
+        toggleSpinner(true);
     }
-    toggleSpinner(true);
+
 });
 
 
@@ -106,6 +113,14 @@ const displayNews = newses => {
         toggleSpinner(false);
     }
 
+
+    newses.sort((a, b) => {
+        return b.total_view - a.total_view;
+    });
+
+
+    console.log(newses);
+
     const numOfNews = document.getElementById('numOfNews');
     const numberDiv = document.createElement('div');
     numOfNews.innerHTML = `
@@ -115,8 +130,8 @@ const displayNews = newses => {
     const newsContainer = document.getElementById('newsContainer');
     newsContainer.textContent = '';
     newses.forEach(news => {
+        console.log(news.total_view);
 
-        // console.log(newses.length);
 
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card', 'mb-3');
