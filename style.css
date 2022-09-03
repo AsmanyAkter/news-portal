@@ -1,9 +1,31 @@
-.bottom-div {
-    position: absolute;
-    bottom: 10px;
-
-}
-
 .card-height {
     height: 300px;
 }
+
+.footer {
+    height: 50px;
+    margin-top: -50px;
+}
+
+
+/* .footer-div {
+    height: 100px;
+    background-color: rgb(240, 206, 195);
+
+    bottom: 0;
+    width: 100%;
+} */
+
+
+/* .footer-div {
+
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+
+} */
+
+
+/* .footer {
+    flex-shrink: 0;
+} */
