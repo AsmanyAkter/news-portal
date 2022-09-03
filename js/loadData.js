@@ -165,7 +165,36 @@ const displayNews = newses => {
 
                         <div>   <h5 class="pt-4">${news.total_view ? news.total_view : "No Views"}</h5></div>
 
-                        <div>    <button class="btn btn-primary btn-sm mt-4" >See more</button>
+                        <div>    <button class="btn btn-primary btn-sm mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">See more</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"  id="exampleModalLabel"> News Details  </h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-start">
+                                    <h5 class="card-title">Title: ${news.title}</h5>
+                                    <p class="card-text">Details: ${news.details}</p>
+                                    <br>
+                                    <p > Author Name: ${news.author.name ? news.author.name : "No data found"}</p>
+                                    <br>
+                                    <p > Published Date: ${news.author.published_date ? news.author.published_date : "No data found"}</p>
+                                    <br>
+                                    <p > Rating: ${news.rating.number ? news.rating.number : "No data found"}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                         </div>
 
 
