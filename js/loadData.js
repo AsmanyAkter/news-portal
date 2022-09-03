@@ -116,13 +116,12 @@ const displayNews = newses => {
         toggleSpinner(false);
     }
 
-
     newses.sort((a, b) => {
         return b.total_view - a.total_view;
     });
 
 
-    console.log(newses);
+    // console.log(newses[0].category_id);
 
     const numOfNews = document.getElementById('numOfNews');
     const numberDiv = document.createElement('div');
@@ -133,7 +132,7 @@ const displayNews = newses => {
     const newsContainer = document.getElementById('newsContainer');
     newsContainer.textContent = '';
     newses.forEach(news => {
-        console.log(news.total_view);
+        // console.log(news.total_view);
 
 
         const newsDiv = document.createElement('div');
