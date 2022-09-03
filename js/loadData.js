@@ -44,6 +44,7 @@ document.addEventListener('click', function (e) {
     if (e.target && e.target.id == '01') {
         loadNewsById()
     }
+    toggleSpinner(true);
 });
 
 
@@ -52,35 +53,66 @@ const displayNews = newses => {
     newsContainer.textContent = '';
     const news = loadNewsById();
 
-
-
     newses.forEach(news => {
+
+        console.log(news.details);
 
 
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card', 'mb-3');
         const newsDetails = (news.details).length;
-        console.log(newsDetails)
+        console.log(newsDetails);
+
         newsDiv.innerHTML = `
-        </div>
+
+              </div>
 
                 <div class="row g-0">
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-xs-4">
                         <img src="${news.image_url}" class="img-fluid rounded-start" alt="...">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-sm-11">
                         <div class="card-body">
-                        <p class="card-text">"${news.details}"</p>
+                        <h5 class="card-title">${news.title}</h5>
+                        <p class="card-text">${(news.details).slice(0, 200)}...</p>
 
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <br> <br>
+                        <div class="d-flex flex-row g-4">
+                        <img src="${news.author.img}" alt="" srcset="" height="40px" width="40px"
+                            style="border-radius: 50%;">
+                        <h5 class="ps-3"> ${news.author.name} </h5>
+                        <h5 class="ps-5 pe-5">${news.total_view}</h5>
+
+                        <button class="btn btn-primary btn-sm" >See more</button>
+
+
+                        </div>
+
+
+
                         </div>
                     </div>
                 </div>
 
         `;
         newsContainer.appendChild(newsDiv);
+
+
+
     });
 
+    toggleSpinner(false);
 }
 
-{/* <button onclick="loadPhoneDetails('${phone.slug}')" href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal">Show Details</button> */ }
+
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none')
+    }
+    else {
+        loaderSection.classList.add('d-none');
+    }
+}
+
+
